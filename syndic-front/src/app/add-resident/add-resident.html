@@ -1,0 +1,39 @@
+<div class="container" style="display: flex; justify-content: center;">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>New Resident</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="mat-typography" [formGroup]="residentFormGroup">
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="Enter First Name" formControlName="firstName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Enter Last Name" formControlName="lastName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Cin</mat-label>
+                <input matInput placeholder="Enter Cin" formControlName="cin">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="Enter Phone" formControlName="phone">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter Email" formControlName="email">
+            </mat-form-field>
+
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-raised-button color="primary" (click)="saveResident()" [disabled]="residentFormGroup.invalid" style="margin-right: 2px;">Save</button>
+            <button mat-raised-button color="warn" (click)="goBack()">Cancel</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
