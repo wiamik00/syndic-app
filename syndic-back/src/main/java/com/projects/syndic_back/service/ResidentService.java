@@ -53,4 +53,9 @@ public class ResidentService implements IResidentService {
             residentRepository.deleteById(id);
         }
     }
+
+    @Override
+    public List<Resident> searchResidents(String keyword) {
+        return residentRepository.searchByName(keyword);
+    }
 }

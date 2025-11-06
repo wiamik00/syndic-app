@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("residents")
+@CrossOrigin("*")
 public class ResidentController {
 
     private final IResidentService residentService;
@@ -39,5 +40,10 @@ public class ResidentController {
     @DeleteMapping("{id}")
     public void deleteResident(@PathVariable Long id) {
         residentService.deleteResident(id);
+    }
+
+    @GetMapping("search")
+    public List<Resident> searchResidents(@RequestParam(name = "keyword", defaultValue = "") String keyword) {
+        return residentService.searchResidents("%" + keyword + "%");
     }
 }

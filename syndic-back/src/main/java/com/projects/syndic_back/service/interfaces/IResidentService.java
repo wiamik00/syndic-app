@@ -10,4 +10,5 @@ public interface IResidentService {
     Resident createResident(Resident resident);
     Resident updateResident(Resident resident, Long id);
     void deleteResident(Long id);
+    List<Resident> searchResidents(String keyword);
 }

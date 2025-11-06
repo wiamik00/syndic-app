@@ -18,6 +18,7 @@ export class Residents {
   public residents!: Resident[];
   public dataSource!: MatTableDataSource<Resident>;
   public displayedColumns: string[] = ['id', 'firstName', 'lastName', 'cin', 'phone', 'email', 'actions'];
+  public keyword: string = '';
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -70,6 +71,20 @@ export class Residents {
             Swal.fire('Error', 'Error deleting resident', 'error');
           }
         });
+      }
+    });
+  }
+
+  searchResidents(): void {
+    this.residentService.searchResidents(this.keyword).subscribe({
+      next: (data: Resident[]) => {
+        this.residents = data;
+        this.dataSource = new MatTableDataSource(this.residents);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      error: (err) => {
+        console.error('Error searching residents:', err);
       }
     });
   }

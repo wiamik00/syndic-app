@@ -30,4 +30,8 @@ export class ResidentService {
   deleteResident(id: number): Observable<void> {
     return this.httpClient.delete<void>(`${environment.backendHost}/residents/${id}`);
   }
+
+  searchResidents(keyword: string): Observable<Resident[]> {
+    return this.httpClient.get<Resident[]>(`${environment.backendHost}/residents/search?keyword=${keyword}`);
+  }
 }

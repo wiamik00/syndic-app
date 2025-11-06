@@ -3,7 +3,8 @@
         <span>Residents</span>
         <span class="spacer"></span>
         <mat-form-field style="width: 50%; margin: auto;">
-            <input matInput type="search" placeholder="Search..." >
+            <input matInput type="search" placeholder="Search..." [(ngModel)]="keyword" 
+                (ngModelChange)="searchResidents()">
             <button matSuffix mat-icon-button aria-label="Search">
                 <mat-icon>search</mat-icon>
             </button>
